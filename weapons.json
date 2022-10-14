@@ -1,0 +1,47 @@
+[
+    {
+        "name": "Mistsplitter Reforged",
+        "rarity": 5,
+        "type": "Sword",
+        "ATK": [
+            ["Base", 48],
+            ["Max", 674]
+        ],
+        "2ndStat": [
+            "CRIT DMG %",
+            ["Base", 9.6],
+            ["Max", 44.1]
+        ],
+        "passiveAbility": "Mistsplitter's Edge Gain a 12~24% Elemental DMG Bonus for all elements and receive the might of the Mistsplitter's Emblem. At stack levels 1/2/3, Mistsplitter's Emblem provides a 8/16/28~16/32/56% Elemental DMG Bonus for the character's Elemental Type. The character will obtain 1 stack of Mistsplitter's Emblem in each of the following scenarios: Normal Attack deals Elemental DMG (stack lasts 5s), casting Elemental Burst (stack lasts 10s); Energy is less than 100% (stack disappears when Energy is full). Each stack's duration is calculated independently."
+    },
+    {
+        "name": "Skyward Blade",
+        "rarity": 5,
+        "type": "Sword",
+        "ATK": [
+            ["Base", 46],
+            ["Max", 608]
+        ],
+        "2ndStat": [
+            "Energy Recharge %",
+            ["Base", 12],
+            ["Max", 55.1]
+        ],
+        "passiveAbility": "Sky-Piercing Fang CRIT Rate increased by 4~8%. Gains Skypiercing Might upon using an Elemental Burst: Increases Movement SPD by 10%, increases ATK SPD by 10%, and Normal and Charged hits deal additional DMG equal to 20~40% of ATK. Skypiercing Might lasts for 12s."
+    },
+    {
+        "name": "Key of Khaj-Nisut",
+        "rarity": 5,
+        "type": "Sword",
+        "ATK": [
+            ["Base", 44],
+            ["Max", 542]
+        ],
+        "2ndStat": [
+            "HP %",
+            ["Base", 14.4],
+            ["Max", 66.2]
+        ],
+        "passiveAbility": "Sunken Song of the Sands HP increased by 20~'%. When an Elemental Skill hits opponents, you gain the Grand Hymn effect for 20s. This effect increases the equipping character's Elemental Mastery by 0.12~'% of their Max HP. This effect can trigger once every 0.3s. Max 3 stacks. When this effect gains 3 stacks, or when the third stack's duration is refreshed, the Elemental Mastery of all nearby party members will be increased by 0.2~'% of the equipping character's max HP for 20s."
+    }
+]

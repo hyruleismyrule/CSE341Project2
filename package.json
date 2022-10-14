@@ -1,0 +1,31 @@
+{
+  "name": "cse341project2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyruleismyrule/CSE341Project2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hyruleismyrule/CSE341Project2/issues"
+  },
+  "homepage": "https://github.com/hyruleismyrule/CSE341Project2#readme",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20",
+    "swagger-ui-express": "^4.5.0"
+  },
+  "devDependencies": {
+    "swagger-autogen": "^2.22.0"
+  }
+}
