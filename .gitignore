@@ -6,6 +6,7 @@ Icon
 .eslintrc.js
 yarn.lock
 notes.txt
+notes.js
 # Logs
 logs
 *.log
