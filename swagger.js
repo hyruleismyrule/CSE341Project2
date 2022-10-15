@@ -7,7 +7,7 @@ const doc = {
     title: 'My API',
     description: 'Contacts'
   },
-  host: 'https://cse341-project-genshin-impact.onrender.com',
+  host: 'cse341-project-genshin-impact.onrender.com',
   schemes: ['https']
 };
 
