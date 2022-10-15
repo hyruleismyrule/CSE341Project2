@@ -1,0 +1,132 @@
+# *************************
+# localhost:3000
+
+# GET
+# All Characters
+GET http://localhost:3000/api/characters
+###
+
+# Individual Character by Id
+GET http://localhost:3000/api/characters/6349f631f4e56b197afb8832
+###
+GET http://localhost:3000/api/characters/6349f631f4e56b197afb8833
+###
+GET http://localhost:3000/api/characters/6349f631f4e56b197afb8834
+###
+
+# All weapons
+GET http://localhost:3000/api/weapons/
+
+###
+
+# Individual Weapon by Id
+GET http://localhost:3000/api/weapons/6349f642f4e56b197afb8837
+###
+GET http://localhost:3000/api/weapons/6349f642f4e56b197afb8838
+###
+GET http://localhost:3000/api/weapons/6349f642f4e56b197afb8839
+###
+
+# POST
+POST http://localhost:3000/api/characters HTTP/1.1 
+content-type: application/json
+
+{
+    "name": "Arataki Itto",
+    "rarity": 5,
+    "weapon": "Claymore",
+    "vision": "Geo",
+    "birthday": "6/1",
+    "constellations": "Taurus Iracundus",
+    "modelType": "Tall Male",
+    "specialDish": "Way of the Strong",
+    "Region": "Inazuma",
+    "talents": "#"
+}
+
+###
+POST http://localhost:3000/api/weapons HTTP/1.1 
+content-type: application/json
+
+{
+    "name": "Freedom-Sworn",
+    "rarity": 5,
+    "type": "Sword",
+    "ATK": [
+        ["Base", 46],
+        ["Max", 608]
+    ],
+    "2ndStat": [
+        "Elemental Mastery",
+        ["Base", 43],
+        ["Max", 198]
+    ],
+    "passiveAbility": "#"
+}
+
+
+# Render
+# https://cse341-project-genshin-impact.onrender.com
+# GET
+# All Characters
+GET https://cse341-project-genshin-impact.onrender.com/api/characters
+###
+
+# Individual Character by Id
+GET https://cse341-project-genshin-impact.onrender.com/api/characters/6349f631f4e56b197afb8832
+###
+GET https://cse341-project-genshin-impact.onrender.com/api/characters/6349f631f4e56b197afb8833
+###
+GET https://cse341-project-genshin-impact.onrender.com/api/characters/6349f631f4e56b197afb8834
+###
+
+# All weapons
+GET https://cse341-project-genshin-impact.onrender.com/api/weapons/
+
+###
+
+# Individual Weapon by Id
+GET https://cse341-project-genshin-impact.onrender.com/api/weapons/6349f642f4e56b197afb8837
+###
+GET https://cse341-project-genshin-impact.onrender.com/api/weapons/6349f642f4e56b197afb8838
+###
+GET https://cse341-project-genshin-impact.onrender.com/api/weapons/6349f642f4e56b197afb8839
+###
+
+# POST
+POST https://cse341-project-genshin-impact.onrender.com/api/characters HTTP/1.1 
+content-type: application/json
+
+{
+    "name": "Arataki Itto",
+    "rarity": 5,
+    "weapon": "Claymore",
+    "vision": "Geo",
+    "birthday": "6/1",
+    "constellations": "Taurus Iracundus",
+    "modelType": "Tall Male",
+    "specialDish": "Way of the Strong",
+    "Region": "Inazuma",
+    "talents": "#"
+}
+
+###
+
+POST https://cse341-project-genshin-impact.onrender.com/api/weapons HTTP/1.1 
+content-type: application/json
+
+{
+    "name": "Freedom-Sworn",
+    "rarity": 5,
+    "type": "Sword",
+    "ATK": [
+        ["Base", 46],
+        ["Max", 608]
+    ],
+    "2ndStat": [
+        "Elemental Mastery",
+        ["Base", 43],
+        ["Max", 198]
+    ],
+    "passiveAbility": "#"
+}
