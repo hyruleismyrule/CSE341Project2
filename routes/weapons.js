@@ -31,7 +31,6 @@ router.post('/', weaponValidator,
     });
 
 // PUT / Update
-// router.put('/:id', weaponsController.updateWeapon);
 router.put('/:id', weaponValidator,
     function (req, res) {
         const errors = validationResult(req);

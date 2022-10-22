@@ -32,14 +32,12 @@ content-type: application/json
 
 ###
 
-PUT http://localhost:3000/api/weapons HTTP/1.1 
+PUT http://localhost:3000/api/weapons/635444ec9c89a5e6be32842c HTTP/1.1
 content-type: application/json
 
 {
-    "id": "635444ec9c89a5e6be32842c",
-    "name": "Test-100",
+    "name": "Test-2",
     "rarity": 5,
     "type": "Sword",
     "passiveAbility": "Testing an api"
 }
-

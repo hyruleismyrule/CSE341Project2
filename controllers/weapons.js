@@ -89,7 +89,7 @@ const updateWeapon = async (req, res) => {
     };
     const response = await mongodb.getDb().db('genshinImpact').collection('weapons').replaceOne({ _id: weaponId }, weapon);
     if (response.modifiedCount > 0) {
-      res.status(204).send();
+      res.status(204).send({ message: 'Weapon updated sucessfuly.' });
     } else {
       res.status(500).json(response.error || 'Some error occurred while updating the weapon.');
     }
