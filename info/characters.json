@@ -7,7 +7,7 @@
         "birthday": "9/13",
         "modelType": "Medium Male",
         "specialDish": "Woodland Dream",
-        "Region": "Mondstadt"
+        "region": "Mondstadt"
     },
     {
         "name": "Aloy",
@@ -17,7 +17,7 @@
         "birthday": "4/4",
         "modelType": "Medium Female",
         "specialDish": "Satiety Gel",
-        "Region": "Horizon Zero Dawn"
+        "region": "Horizon Zero Dawn"
     },
     {
         "name": "Amber",
@@ -27,6 +27,6 @@
         "birthday": "8/10",
         "modelType": "Medium Female",
         "specialDish": "Outrider's Champion Steak!",
-        "Region": "Mondstadt"
+        "region": "Mondstadt"
     }
 ]
