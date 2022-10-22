@@ -62,17 +62,15 @@ const createCharacter = async (req, res) => {
       rarity: req.body.rarity,
       vision: req.body.vision,
       birthday: req.body.birthday,
-      constelation: req.body.constelation,
       modelType: req.body.modelType,
       specialDish: req.body.specialDish,
       region: req.body.region,
-      talents: req.body.talents
     };
-    const characterCheck = characterValidator(characterCheck);
-    if (characterCheck.error) {
-      res.status(400).send({ message: characterCheck.error });
-      return;
-    }
+    // const characterCheck = characterValidator(characterCheck);
+    // if (characterCheck.error) {
+    //   res.status(400).send({ message: characterCheck.error });
+    //   return;
+    // }
     const response = await mongodb.getDb().db('genshinImpact').collection('characters').insertOne(character);
     if (response.acknowledged) {
       res.status(201).json(response);
@@ -97,17 +95,15 @@ const updateCharacter = async (req, res) => {
       rarity: req.body.rarity,
       vision: req.body.vision,
       birthday: req.body.birthday,
-      constelation: req.body.constelation,
       modelType: req.body.modelType,
       specialDish: req.body.specialDish,
       region: req.body.region,
-      talents: req.body.talents
     };
-    const characterCheck = characterValidator(characterCheck);
-    if (characterCheck.error) {
-      res.status(400).send({ message: characterCheck.error });
-      return;
-    }
+    // const characterCheck = characterValidator(characterCheck);
+    // if (characterCheck.error) {
+    //   res.status(400).send({ message: characterCheck.error });
+    //   return;
+    // }
     const response = await mongodb.getDb().db('genshinImpact').collection('characters').replaceOne({ _id: characterId }, character);
     if (response.modifiedCount > 0) {
       res.status(204).send();

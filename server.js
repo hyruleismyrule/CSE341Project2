@@ -5,14 +5,11 @@ const port = 3000;
 const bodyParser = require('body-parser');
 const mongodb = require('./connections/index');
 const swaggerUi = require('swagger-ui-express');
-// const createError = require('http-errors');
-// const path = require('path');
 const cors = require('cors');
-// const { signupValidation, loginValidation } = require('./validation.js');
 
-// To auto generate a file run instructions here and on line 23
+// To auto generate a file run instructions here
 // const swaggerDocumentInstructions = require('./swagger');
-// To run UI run document here and on line 24
+// To run UI run document here
 const swaggerDocument = require('./swagger.json');
 
 // Main
@@ -24,7 +21,9 @@ app
     res.setHeader('Access-Control-Allow-Origin', '*');
     next();
   })
+  // To create a new document
   // .use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocumentInstructions))
+  // To load the document
   .use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
   .use('/', require('./routes'));
 

@@ -60,13 +60,13 @@ const createWeapon = async (req, res) => {
     name: req.body.name,
     rarity: req.body.rarity,
     type: req.body.type,
-    refinement: req.body.refinement
+    passiveAbility: req.body.passiveAbility,
   };
-    const weaponCheck = weaponValidator(weaponCheck);
-    if (weaponCheck.error) {
-      res.status(400).send({ message: weaponCheck.error });
-      return;
-    }
+    // const weaponCheck = weaponValidator(weaponCheck);
+    // if (weaponCheck.error) {
+    //   res.status(400).send({ message: weaponCheck.error });
+    //   return;
+    // }
     const response = await mongodb.getDb().db('genshinImpact').collection('weapons').insertOne(weapon);
     if (response.acknowledged) {
       res.status(201).json(response);
@@ -90,13 +90,13 @@ const updateWeapon = async (req, res) => {
       name: req.body.name,
       rarity: req.body.rarity,
       type: req.body.type,
-      refinement: req.body.refinement
+      passiveAbility: req.body.passiveAbility,
     };
-    const weaponCheck = weaponValidator(weaponCheck);
-    if (weaponCheck.error) {
-      res.status(400).send({ message: weaponCheck.error });
-      return;
-    }
+    // const weaponCheck = weaponValidator(weaponCheck);
+    // if (weaponCheck.error) {
+    //   res.status(400).send({ message: weaponCheck.error });
+    //   return;
+    // }
     const response = await mongodb.getDb().db('genshinImpact').collection('weapons').replaceOne({ _id: weaponId }, weapon);
     if (response.modifiedCount > 0) {
       res.status(204).send();

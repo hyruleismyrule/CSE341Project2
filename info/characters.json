@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Albedo",
+        "rarity": 5,
+        "weapon": "Sword",
+        "vision": "Geo",
+        "birthday": "9/13",
+        "modelType": "Medium Male",
+        "specialDish": "Woodland Dream",
+        "Region": "Mondstadt"
+    },
+    {
+        "name": "Aloy",
+        "rarity": 5,
+        "weapon": "Bow",
+        "vision": "Cryo",
+        "birthday": "4/4",
+        "modelType": "Medium Female",
+        "specialDish": "Satiety Gel",
+        "Region": "Horizon Zero Dawn"
+    },
+    {
+        "name": "Amber",
+        "rarity": 4,
+        "weapon": "Bow",
+        "vision": "Pyro",
+        "birthday": "8/10",
+        "modelType": "Medium Female",
+        "specialDish": "Outrider's Champion Steak!",
+        "Region": "Mondstadt"
+    }
+]
