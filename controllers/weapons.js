@@ -6,12 +6,9 @@
 const mongodb = require('../connections/index');
 const ObjectId = require('mongodb').ObjectId;
 
-// console.log(weaponValidator)
-
 
 // Main
 // GET / Read
-// All
 const getAllWeapons = async (req, res) => {
   try {
     await mongodb.getDb().db('genshinImpact').collection('weapons').find().toArray()
@@ -29,7 +26,6 @@ const getAllWeapons = async (req, res) => {
   }
 };
 
-// One
 const getWeaponById = async (req, res) => {
   try {
     const weaponId = new ObjectId(req.params.id);
@@ -53,7 +49,6 @@ const getWeaponById = async (req, res) => {
 };
 
 // POST / Create
-// One
 const createWeapon = async (req, res) => {
   try {
   const weapon = {

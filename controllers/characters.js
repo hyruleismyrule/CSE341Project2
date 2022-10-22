@@ -5,14 +5,10 @@
 // Imports
 const mongodb = require('../connections/index');
 const ObjectId = require('mongodb').ObjectId;
-const validator = require('../validation.js');
-const characterValidator = validator.characterValidation;
-
 
 
 // Main
 // GET / Read
-// All
 const getAllCharacters = async (req, res) => {
   try {
     await mongodb.getDb().db('genshinImpact').collection('characters').find().toArray()
@@ -30,7 +26,6 @@ const getAllCharacters = async (req, res) => {
   }
 };
 
-// One
 const getCharacterById = async (req, res) => {
   try {
     const characterId = new ObjectId(req.params.id);
@@ -54,7 +49,6 @@ const getCharacterById = async (req, res) => {
 };
 
 // POST / Create
-// One
 const createCharacter = async (req, res) => {
   try {
     const character = {
@@ -66,11 +60,6 @@ const createCharacter = async (req, res) => {
       specialDish: req.body.specialDish,
       region: req.body.region,
     };
-    // const characterCheck = characterValidator(characterCheck);
-    // if (characterCheck.error) {
-    //   res.status(400).send({ message: characterCheck.error });
-    //   return;
-    // }
     const response = await mongodb.getDb().db('genshinImpact').collection('characters').insertOne(character);
     if (response.acknowledged) {
       res.status(201).json(response);
@@ -99,11 +88,6 @@ const updateCharacter = async (req, res) => {
       specialDish: req.body.specialDish,
       region: req.body.region,
     };
-    // const characterCheck = characterValidator(characterCheck);
-    // if (characterCheck.error) {
-    //   res.status(400).send({ message: characterCheck.error });
-    //   return;
-    // }
     const response = await mongodb.getDb().db('genshinImpact').collection('characters').replaceOne({ _id: characterId }, character);
     if (response.modifiedCount > 0) {
       res.status(204).send();

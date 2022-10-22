@@ -1,0 +1,43 @@
+# Localhost
+GET http://localhost:3000/api/weapons
+###
+# Real Id
+GET http://localhost:3000/api/weapons/63542de0ccfc822eeb7c33ef
+###
+# Fake Id
+GET http://localhost:3000/api/weapons/6349f631f4e56b197afb8777
+###
+
+# Correct Information
+POST http://localhost:3000/api/weapons HTTP/1.1 
+content-type: application/json
+
+{
+    "name": "Test-2",
+    "rarity": 5,
+    "type": "Sword",
+    "passiveAbility": "Testing an api"
+}
+
+###
+# Incorrect Information
+POST http://localhost:3000/api/weapons HTTP/1.1 
+content-type: application/json
+
+{
+    "name": "Fail-Test",
+    "rarity": "5",
+    "passiveAbility": "Testing an api"
+}
+
+###
+
+PUT http://localhost:3000/api/weapons/635444ec9c89a5e6be32842c HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Test-2",
+    "rarity": 5,
+    "type": "Sword",
+    "passiveAbility": "Testing an api"
+}
