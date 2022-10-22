@@ -1,11 +1,66 @@
 # Render
+# Weapons
+DELETE https://cse341-project-genshin-impact.onrender.com/api/weapons/63542e834b46a08e10b782fe HTTP/1.1
+###
 
+# Valid Information
+PUT https://cse341-project-genshin-impact.onrender.com/api/weapons/635444ec9c89a5e6be32842c HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Valid-Test",
+    "rarity": 5,
+    "type": "Sword",
+    "passiveAbility": "Testing an api"
+}
+###
+
+# Invalid Information
+PUT https://cse341-project-genshin-impact.onrender.com/api/weapons/635444ec9c89a5e6be32842c HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Fail-Test",
+    "passiveAbility": "Testing an api"
+}
+###
+# Characters
+DELETE https://cse341-project-genshin-impact.onrender.com/api/characters/63544f355ac0994f1b7c9a73 HTTP/1.1
+###
+
+# Valid Information
+PUT https://cse341-project-genshin-impact.onrender.com/api/characters/63544f255ac0994f1b7c9a72 HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Valid-Test",
+    "rarity": 5,
+    "weapon": "Polearm",
+    "vision": "Geo",
+    "birthday": "9/13",
+    "modelType": "Tall Male",
+    "specialDish": "Woodland Dream",
+    "Region": "Mondstadt"
+}
+###
+
+# Invalid Information
+PUT https://cse341-project-genshin-impact.onrender.com/api/characters/63544f255ac0994f1b7c9a72 HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Fail-Test",
+    "rarity": 4,
+    "weapon": "Polearm",
+    "vision": "Geo",
+    "Region": "Mondstadt"
+}
 ###
 # **************
 # Localhost
 
 # Weapons
-DELETE http://localhost:3000/api/weapons/635443cc2c9e7ad4d2e1f06a HTTP/1.1
+DELETE http://localhost:3000/api/weapons/63542e834b46a08e10b782fe HTTP/1.1
 ###
 
 # Valid Information
@@ -52,4 +107,67 @@ content-type: application/json
 ###
 
 GET http://localhost:3000/api/weapons
+###
+
+# Characters
+DELETE http://localhost:3000/api/characters/63544f355ac0994f1b7c9a73 HTTP/1.1
+###
+
+# Valid Information
+PUT http://localhost:3000/api/characters/63544f255ac0994f1b7c9a72 HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Valid-Test",
+    "rarity": 5,
+    "weapon": "Polearm",
+    "vision": "Geo",
+    "birthday": "9/13",
+    "modelType": "Tall Male",
+    "specialDish": "Woodland Dream",
+    "Region": "Mondstadt"
+}
+###
+
+# Invalid Information
+PUT http://localhost:3000/api/characters/63544f255ac0994f1b7c9a72 HTTP/1.1
+content-type: application/json
+
+{
+    "name": "Fail-Test",
+    "rarity": 4,
+    "weapon": "Polearm",
+    "vision": "Geo",
+    "Region": "Mondstadt"
+}
+###
+
+# Valid Information
+POST http://localhost:3000/api/characters HTTP/1.1 
+content-type: application/json
+
+{
+    "name": "Valid-Test",
+    "rarity": 5,
+    "weapon": "Polearm",
+    "vision": "Geo",
+    "birthday": "9/13",
+    "modelType": "Tall Male",
+    "specialDish": "Woodland Dream",
+    "Region": "Testing an API"
+}
+###
+# Invalid Information
+POST http://localhost:3000/api/characters HTTP/1.1 
+content-type: application/json
+
+{
+    "name": "Fail-Test",
+    "rarity": "5",
+     "vision": "Geo",
+    "birthday": "9/13"
+}
+###
+
+GET http://localhost:3000/api/characters
 ###
