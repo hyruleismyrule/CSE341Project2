@@ -5,8 +5,8 @@
 // Imports
 const mongodb = require('../connections/index');
 const ObjectId = require('mongodb').ObjectId;
-const validator = require('../validation.js');
-const weaponValidator = validator.weaponValidation;
+
+// console.log(weaponValidator)
 
 
 // Main
@@ -62,11 +62,6 @@ const createWeapon = async (req, res) => {
     type: req.body.type,
     passiveAbility: req.body.passiveAbility,
   };
-    // const weaponCheck = weaponValidator(weaponCheck);
-    // if (weaponCheck.error) {
-    //   res.status(400).send({ message: weaponCheck.error });
-    //   return;
-    // }
     const response = await mongodb.getDb().db('genshinImpact').collection('weapons').insertOne(weapon);
     if (response.acknowledged) {
       res.status(201).json(response);
@@ -92,11 +87,6 @@ const updateWeapon = async (req, res) => {
       type: req.body.type,
       passiveAbility: req.body.passiveAbility,
     };
-    // const weaponCheck = weaponValidator(weaponCheck);
-    // if (weaponCheck.error) {
-    //   res.status(400).send({ message: weaponCheck.error });
-    //   return;
-    // }
     const response = await mongodb.getDb().db('genshinImpact').collection('weapons').replaceOne({ _id: weaponId }, weapon);
     if (response.modifiedCount > 0) {
       res.status(204).send();
