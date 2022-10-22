@@ -4,8 +4,8 @@ const swaggerAutogen = require('swagger-autogen')();
 // Main
 const doc = {
   info: {
-    title: 'My API',
-    description: 'Contacts'
+    title: 'Genshin Impact API',
+    description: 'Genshin Impact 4 & 5 Star Characters and Weapons'
   },
   host: 'cse341-project-genshin-impact.onrender.com',
   schemes: ['https']
