@@ -34,6 +34,10 @@ const getAllCharacters = async (req, res) => {
 const getCharacterById = async (req, res) => {
   try {
     const characterId = new ObjectId(req.params.id);
+    if (!characterId) {
+      res.status(400).send({ message: 'Invalid character ID supplied.' });
+      return;
+    }
     await mongodb.getDb().db('genshinImpact').collection('characters').find({ _id: characterId }).toArray()
       .then((result) => {
         res.setHeader('Content-Type', 'application/json');
@@ -84,6 +88,10 @@ const createCharacter = async (req, res) => {
 const updateCharacter = async (req, res) => {
   try {
     const characterId = new ObjectId(req.params.id);
+    if (!characterId) {
+      res.status(400).send({ message: 'Invalid character ID supplied.' });
+      return;
+    }
     const character = {
       name: req.body.name,
       rarity: req.body.rarity,

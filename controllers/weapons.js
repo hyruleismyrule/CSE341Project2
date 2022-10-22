@@ -5,71 +5,125 @@
 // Imports
 const mongodb = require('../connections/index');
 const ObjectId = require('mongodb').ObjectId;
+const validator = require('../validation.js');
+const weaponValidator = validator.weaponValidation;
 
-// console.log(mongodb);
 
 // Main
 // GET / Read
 // All
 const getAllWeapons = async (req, res) => {
-  const result = await mongodb.getDb().db('genshinImpact').collection('weapons').find().toArray().then((result) => {
-    res.setHeader('Content-Type', 'application/json');
-    res.status(200).json(result);
-  });
+  try {
+    await mongodb.getDb().db('genshinImpact').collection('weapons').find().toArray()
+      .then((result) => {
+        res.setHeader('Content-Type', 'application/json');
+        res.status(200).send(result);
+      })
+      .catch((err) => {
+        res.status(500).send({
+          message: err.message || 'Some error occurred while retrieving the weapons.'
+        });
+      });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 };
 
 // One
 const getWeaponById = async (req, res) => {
-  const weaponId = new ObjectId(req.params.id);
-
-  const result = await mongodb.getDb().db('genshinImpact').collection('weapons').find({ _id: weaponId }).toArray().then((result) => {
-    res.setHeader('Content-Type', 'application/json');
-    res.status(200).json(result);
-  });
+  try {
+    const weaponId = new ObjectId(req.params.id);
+    if (!weaponId) {
+      res.status(400).send({ message: 'Invalid weapon ID supplied.' });
+      return;
+    }
+    await mongodb.getDb().db('genshinImpact').collection('weapons').find({ _id: weaponId }).toArray()
+      .then((result) => {
+        res.setHeader('Content-Type', 'application/json');
+        res.status(200).json(result);
+      })
+      .catch((err) => {
+        res.status(500).send({
+          message: err.message || 'Some error occurred while retrieving the weapon.'
+        });
+      });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 };
 
 // POST / Create
 // One
 const createWeapon = async (req, res) => {
+  try {
   const weapon = {
     name: req.body.name,
     rarity: req.body.rarity,
     type: req.body.type,
     refinement: req.body.refinement
   };
-  const response = await mongodb.getDb().db('genshinImpact').collection('weapons').insertOne(weapon);
-  if (response.acknowledged) {
-    res.status(201).json(response);
-  } else {
-    res.status(500).json(response.error || 'Some error occurred while creating the weapon.');
+    const weaponCheck = weaponValidator(weaponCheck);
+    if (weaponCheck.error) {
+      res.status(400).send({ message: weaponCheck.error });
+      return;
+    }
+    const response = await mongodb.getDb().db('genshinImpact').collection('weapons').insertOne(weapon);
+    if (response.acknowledged) {
+      res.status(201).json(response);
+    } else {
+      res.status(500).json(response.error || 'Some error occurred while creating the weapon.');
+    }
+  } catch (err) {
+    res.status(500).json(err);
   }
 };
 
 // PUT / Update
 const updateWeapon = async (req, res) => {
-  const weaponId = new ObjectId(req.params.id);
-  const weapon = {
-    name: req.body.name,
-    rarity: req.body.rarity,
-    type: req.body.type,
-    refinement: req.body.refinement
-  };
-  const response = await mongodb.getDb().db('genshinImpact').collection('weapons').replaceOne({ _id: weaponId }, weapon);
-  if (response.modifiedCount > 0) {
-    res.status(204).send();
-  } else {
-    res.status(500).json(response.error || 'Some error occurred while updating the weapon.');
+  try {
+    const weaponId = new ObjectId(req.params.id);
+    if (!weaponId) {
+      res.status(400).send({ message: 'Invalid weapon ID supplied.' });
+      return;
+    }
+    const weapon = {
+      name: req.body.name,
+      rarity: req.body.rarity,
+      type: req.body.type,
+      refinement: req.body.refinement
+    };
+    const weaponCheck = weaponValidator(weaponCheck);
+    if (weaponCheck.error) {
+      res.status(400).send({ message: weaponCheck.error });
+      return;
+    }
+    const response = await mongodb.getDb().db('genshinImpact').collection('weapons').replaceOne({ _id: weaponId }, weapon);
+    if (response.modifiedCount > 0) {
+      res.status(204).send();
+    } else {
+      res.status(500).json(response.error || 'Some error occurred while updating the weapon.');
+    }
+  } catch (err) {
+    res.status(500).json(err);
   }
 };
 
 // DELETE
 const deleteWeapon = async (req, res) => {
-  const weaponId = new ObjectId(req.params.id);
-  const response = await mongodb.getDb().db('genshinImpact').collection('weapons').deleteOne({ _id: weaponId }, true);
-  if (response.deletedCount > 0) {
-    res.status(204).send();
-  } else {
-    res.status(500).json(response.error || 'Some error occurred while deleting the weapon.');
+  try {
+    const weaponId = new ObjectId(req.params.id);
+    if (!weaponId) {
+      res.status(400).send({ message: 'Invalid weapon ID supplied.' });
+      return;
+    }
+    const response = await mongodb.getDb().db('genshinImpact').collection('weapons').deleteOne({ _id: weaponId }, true);
+    if (response.deletedCount > 0) {
+      res.status(204).send();
+    } else {
+      res.status(500).json(response.error || 'Some error occurred while deleting the weapon.');
+    }
+  } catch (err) {
+    res.status(500).json(err || 'Some error occurred while deleting the weapon.');
   }
 };
 
