@@ -2,7 +2,7 @@
 GET http://localhost:3000/api/weapons
 ###
 # Real Id
-GET http://localhost:3000/api/weapons/6349f642f4e56b197afb8837
+GET http://localhost:3000/api/weapons/63542de0ccfc822eeb7c33ef
 ###
 # Fake Id
 GET http://localhost:3000/api/weapons/6349f631f4e56b197afb8777
