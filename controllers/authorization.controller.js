@@ -11,14 +11,14 @@ const AuthorizationController = {
         // res.send("login endpoint");
         // res.redirect("https://dev-6rfoxiaajiqencck.us.auth0.com/authorize?response_type=code&client_id=f2SSSB3Z4g6jwPxkRAVL1Mx9gajH9qCe&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fcallback&scope=openid%20profile%20email&state=1234");
         res.redirect(authorizationURL);
-        console.log(authorizationURL);
+        // console.log(authorizationURL);
     },
     callback: async (req, res) => {
         // console.log("In callback");
         // console.log(req);
         // console.log(res);
         // res.json(req.query.code);
-        console.log(req.query.code);
+        // console.log(req.query.code);
         const responce = await fetch(tokenURL, {
             method: "POST",
             headers: {
