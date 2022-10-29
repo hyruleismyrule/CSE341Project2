@@ -1,6 +1,7 @@
 // Imports
 const mongodb = require('../connections/index');
-const ObjectId = require('mongodb').ObjectId;
+// const ObjectId = require('mongodb').ObjectId;
+const userController = require('../controllers/user.js');
 
 const authorizationHost = process.env.AUTHORIZATION_HOST;
 const authUserURL = authorizationHost + "/userinfo";
@@ -13,7 +14,9 @@ const loadUser = async (req, res, next) => {
     const user = await findOrCreateUser(authZeroUser);
 
     // console.log(authZeroUser);
-    // console.log(user);
+    console.log(user);
+
+    req.user = user;
 
     next();
 };
