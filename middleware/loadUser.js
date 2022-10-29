@@ -48,3 +48,7 @@ const findOrCreateUser = async (authZeroUserJson) => {
 }
 
 module.exports = loadUser;
+
+// https://dev-6rfoxiaajiqencck.us.auth0.com/authorize?response_type=code&client_id=f2SSSB3Z4g6jwPxkRAVL1Mx9gajH9qCe&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fcallback&scope=openid%20profile%20email&state=1234
+
+// https://dev-6rfoxiaajiqencck.us.auth0.com/u/login?state=hKFo2SBtNG5NLWNGWnI5eVUxb05DY29uNlNlWmV4cUZwYVp2WKFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIEJhQzVUM2E1T0NJVHZURWtmN3lLMHpjZFhZNlZTUXZ2o2NpZNkgZjJTU1NCM1o0ZzZqd1B4a1JBVkwxTXg5Z2FqSDlxQ2U
