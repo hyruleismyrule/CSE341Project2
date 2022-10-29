@@ -3,7 +3,10 @@ const clientSecret = process.env.CLIENT_SECRET;
 const redirectURL = process.env.REDIRECT_URL;
 const authorizationHost = process.env.AUTHORIZATION_HOST;
 
-const authorizationURL = authorizationHost + "/authorize?response_type=code&client_id=" + clientID + "&redirect_uri=" + encodeURIComponent(redirectURL) + "&scope=openid%20profile%20email&state=1234";
+const authorizationURL = "http://localhost:3000/authorization/callback" + "/authorize?response_type=code&client_id=" + clientID + "&redirect_uri=" + encodeURIComponent(redirectURL) + "&scope=openid%20profile%20email&state=1234";
+
+// const authorizationURL = "https://cse341-project-genshin-impact.onrender.com/authorization/callback" + "/authorize?response_type=code&client_id=" + clientID + "&redirect_uri=" + encodeURIComponent(redirectURL) + "&scope=openid%20profile%20email&state=1234";
+// const authorizationURL = authorizationHost + "/authorize?response_type=code&client_id=" + clientID + "&redirect_uri=" + encodeURIComponent(redirectURL) + "&scope=openid%20profile%20email&state=1234";
 const tokenURL = authorizationHost + "/oauth/token/";
 
 const AuthorizationController = {
