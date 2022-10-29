@@ -1,3 +1,42 @@
+# Auth0
+https://dev-6rfoxiaajiqencck.us.auth0.com/authorize
+#response_type
+code
+# client_id
+f2SSSB3Z4g6jwPxkRAVL1Mx9gajH9qCe
+# redirect_uri
+http://localhost:3000/callback
+https://cse341-project-genshin-impact.onrender.com/callback
+#scope
+openid profile email
+###
+GET https://dev-6rfoxiaajiqencck.us.auth0.com/authorize?response_type=code&client_id=f2SSSB3Z4g6jwPxkRAVL1Mx9gajH9qCe&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fcallback&scope=openid%20profile%20email
+###
+###
+POST https://dev-6rfoxiaajiqencck.us.auth0.com/oauth/token
+# grant_type
+authorization_code
+# client_id
+f2SSSB3Z4g6jwPxkRAVL1Mx9gajH9qCe
+# client_secret
+Kph_KrBCfrYXVOmZV8VtFccxOFbV6xpg8Wn8hQWVkZoSLE2xv4QKGkpURZS8Ddfa
+# redirect_uri
+http://localhost:3000/callback
+#scope
+openid profile email
+# code (token)
+zUfmAaJhDt6E4NrYYeImixTeDQvPH67_WKbWcv1iWGObq
+
+###
+GET https://dev-6rfoxiaajiqencck.us.auth0.com/userinfo/
+# Authorization
+Bearer (+ token)
+
+
+
+
+
+###
 # Render
 # Weapons
 DELETE https://cse341-project-genshin-impact.onrender.com/api/weapons/63542e834b46a08e10b782fe HTTP/1.1
