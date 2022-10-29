@@ -11,6 +11,7 @@ const authorizationRoutes = require("./authorization");
 router.use('/api/characters', require('./characters'));
 router.use('/api/weapons', require('./weapons'));
 router.use("/authorization", authorizationRoutes);
+router.use("/user", require('./user'));
 
 // Exports
 module.exports = router;
