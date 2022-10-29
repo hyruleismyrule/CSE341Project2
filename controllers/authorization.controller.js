@@ -13,6 +13,9 @@ const AuthorizationController = {
         res.redirect(authorizationURL);
     },
     callback: async (req, res) => {
+        // console.log("In callback");
+        // console.log(req);
+        // console.log(res);
         // res.json(req.query.code);
         const responce = await fetch(tokenURL, {
             method: "POST",
