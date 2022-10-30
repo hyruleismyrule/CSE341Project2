@@ -3,7 +3,7 @@ const { Router } = require("express");
 const loadUser = require("../middleware/loadUser");
 const router = Router();
 
-
+console.log("user router");
 router.use([loadUser]);
 
 // router.get("/")

@@ -8,9 +8,11 @@ const tokenURL = authorizationHost + "/oauth/token/";
 
 const AuthorizationController = {
     login: (req, res) => {
+        console.log("login");
         res.redirect(authorizationURL);
     },
     callback: async (req, res) => {
+        console.log("callback");
         const response = await fetch(tokenURL, {
             method: "POST",
             headers: {
@@ -27,6 +29,8 @@ const AuthorizationController = {
         });
 
         const jsonResponse = await response.json();
+
+        // res.redirect(redirectURL+"");
 
         res.json(jsonResponse);
     }

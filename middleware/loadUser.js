@@ -7,6 +7,7 @@ const authUserURL = authorizationHost + "/userinfo";
 
 
 const loadUser = async (req, res, next) => {
+    console.log("loadUser");
     const authZeroUser = await fetchAuthZeroUser(req.headers.authorization);
     const user = await findOrCreateUser(authZeroUser);
 
@@ -18,6 +19,7 @@ const loadUser = async (req, res, next) => {
 };
 
 const fetchAuthZeroUser = async (authorizationValue) => {
+    console.log("fetchAuthZeroUser");
     const response = await fetch(authUserURL, {
         headers: { Authorization: authorizationValue}
     });
@@ -25,6 +27,7 @@ const fetchAuthZeroUser = async (authorizationValue) => {
 };
 
 const findOrCreateUser = async (authZeroUserJson) => {
+    console.log("findOrCreateUser");
     if (!authZeroUserJson) return;
 
     const exitingUser = await mongodb.getDb().db('genshinImpact').collection('users').find({ identifier: authZeroUserJson.sub });
