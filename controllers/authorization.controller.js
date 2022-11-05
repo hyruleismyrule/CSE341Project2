@@ -2,6 +2,7 @@ const clientID = process.env.CLIENT_ID;
 const clientSecret = process.env.CLIENT_SECRET;
 const redirectURL = process.env.REDIRECT_URL;
 const authorizationHost = process.env.AUTHORIZATION_HOST;
+const userRedirectUrl = process.env.USER_REDIRECT_URL;
 const authorizationURL = authorizationHost + "/authorize?response_type=code&client_id=" + clientID + "&redirect_uri=" + encodeURIComponent(redirectURL) + "&scope=openid%20profile%20email&state=1234";
 const tokenURL = authorizationHost + "/oauth/token/";
 
@@ -28,13 +29,43 @@ const AuthorizationController = {
             })
         });
 
-        const jsonResponse = await response.json();; 
+        const jsonResponse = await response.json();
 
-        // Access Token
-        res.json(jsonResponse);
+        const token = jsonResponse.access_token;
+
+        // // Access Token
+        res.cookie("access_token", token, {
+            httpOnly: true
+        })
+        .json(jsonResponse);        
+
+        // console.log(res.cookie("access_token"));
+      
+        // const auth = jsonResponse.token_type + " " + jsonResponse.access_token;
+
+        // res.header('Authorization', auth);
+        // res.set({
+        //     'Authorization': auth
+        // })
+
+        // res.setHeader('Authorization', auth)
+
+        // res.redirect(userRedirectUrl);
     }
-    // userpage: (req, res) => {
+    // },
+    // userpage: async (req, res) => {
+    //     console.log("userpage");
+    //     const response = await fetch(tokenURL, {
+    //         method: "GET",
+    //         headers: {
+    //             "Content-Type": "application/x-www-form-urlencoded",
+    //         }
+    //     });
 
+    //     const jsonResponse = await response.json();; 
+
+    //     // Access Token
+    //     res.json(jsonResponse);
     // }
 }
 
