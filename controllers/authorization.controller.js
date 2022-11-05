@@ -33,6 +33,18 @@ const AuthorizationController = {
 
         const token = jsonResponse.access_token;
 
+        // console.log(userRedirectUrl);
+        const auth = "Bearer " +  token;
+
+        const responseCreateUser = await fetch(userRedirectUrl, {
+            method: "POST",
+            headers: {
+                "Authorization": auth,
+            }
+        });
+
+        // console.log(responseCreateUser);
+
         // // Access Token
         res.cookie("access_token", token, {
             httpOnly: true

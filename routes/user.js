@@ -6,7 +6,6 @@ const loadUser = require("../middleware/loadUser");
 
 router.get('/', userController.getUserCharacters);
 
-// console.log("user router");
 router.use([loadUser]);
 
 // router.get("/")

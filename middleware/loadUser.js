@@ -7,13 +7,18 @@ const authUserURL = authorizationHost + "/userinfo";
 
 const loadUser = async (req, res, next) => {
     console.log("loadUser");
-    console.log(req.headers);
+    // console.log(req.headers);
+
+
     const authZeroUser = await fetchAuthZeroUser(req.headers.authorization);
+    // const authZeroUser = await fetchAuthZeroUser(req.cookies.access_token);
     const user = await findOrCreateUser(authZeroUser);
 
     console.log(user);
 
     req.user = user;
+
+    // res.send({"SMEG":"HEAD"});
 
     next();
 };
@@ -27,10 +32,12 @@ const fetchAuthZeroUser = async (authorizationValue) => {
 
 const findOrCreateUser = async (authZeroUserJson) => {
     if (!authZeroUserJson) return;
+// {"identifier":"google-oauth2|10079488729658549166800000"}
+    const exitingUser = await mongodb.getDb().db('genshinImpact').collection('users').find({ identifier: authZeroUserJson.sub }).toArray();
+    
+    // console.log(exitingUser);
 
-    const exitingUser = await mongodb.getDb().db('genshinImpact').collection('users').find({ identifier: authZeroUserJson.sub });
-
-    if (exitingUser.id) return exitingUser;
+    if (exitingUser.identifier) return exitingUser;
 
     const newUser = await mongodb.getDb().db('genshinImpact').collection('users').insertOne({
         identifier: authZeroUserJson.sub,
