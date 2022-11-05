@@ -7,7 +7,8 @@ const authUserURL = authorizationHost + "/userinfo";
 
 
 const loadUser = async (req, res, next) => {
-    console.log("loadUser");
+    // console.log("loadUser");
+    console.log(req)
     const authZeroUser = await fetchAuthZeroUser(req.headers.authorization);
     const user = await findOrCreateUser(authZeroUser);
 
@@ -19,7 +20,7 @@ const loadUser = async (req, res, next) => {
 };
 
 const fetchAuthZeroUser = async (authorizationValue) => {
-    console.log("fetchAuthZeroUser");
+    console.log(authorizationValue);
     const response = await fetch(authUserURL, {
         headers: { Authorization: authorizationValue}
     });
