@@ -28,12 +28,14 @@ const AuthorizationController = {
             })
         });
 
-        const jsonResponse = await response.json();
+        const jsonResponse = await response.json();; 
 
-        // res.redirect(redirectURL+"");
-
+        // Access Token
         res.json(jsonResponse);
     }
+    // userpage: (req, res) => {
+
+    // }
 }
 
 module.exports = AuthorizationController;
