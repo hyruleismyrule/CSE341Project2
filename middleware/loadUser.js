@@ -14,7 +14,7 @@ const loadUser = async (req, res, next) => {
     // const authZeroUser = await fetchAuthZeroUser(req.cookies.access_token);
     const user = await findOrCreateUser(authZeroUser);
 
-    console.log(user);
+    // console.log(user);
 
     req.user = user;
 
@@ -34,10 +34,13 @@ const findOrCreateUser = async (authZeroUserJson) => {
     if (!authZeroUserJson) return;
 // {"identifier":"google-oauth2|10079488729658549166800000"}
     const exitingUser = await mongodb.getDb().db('genshinImpact').collection('users').find({ identifier: authZeroUserJson.sub }).toArray();
+    // const exitingUser = await mongodb.getDb().db('genshinImpact').collection('users').find({ identifier: authZeroUserJson.sub });
     
     // console.log(exitingUser);
 
-    if (exitingUser.identifier) return exitingUser;
+    if (exitingUser.length > 0) {
+        return exitingUser[0];
+    }
 
     const newUser = await mongodb.getDb().db('genshinImpact').collection('users').insertOne({
         identifier: authZeroUserJson.sub,
