@@ -6,7 +6,7 @@ const authUserURL = authorizationHost + "/userinfo";
 
 
 const loadUser = async (req, res, next) => {
-    console.log("loadUser");
+    // console.log("loadUser");
     // console.log(req.headers);
 
 
