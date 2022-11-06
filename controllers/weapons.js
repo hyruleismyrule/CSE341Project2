@@ -5,11 +5,30 @@
 // Imports
 const mongodb = require('../connections/index');
 const ObjectId = require('mongodb').ObjectId;
-
+const authorizationHost = process.env.AUTHORIZATION_HOST;
+const authUserURL = authorizationHost + "/userinfo";
 
 // Main
 // GET / Read
 const getAllWeapons = async (req, res) => {
+  try {
+    const jrrtoken = req.cookies.access_token;
+
+    console.log(jrrtoken)
+
+    if (!jrrtoken) {
+      throw("Baby");
+    }
+
+    const response = await fetch(authUserURL, {
+      headers: { Authorization: "bearer " + jrrtoken }
+    });
+  } catch (err) {
+    res.status(401).send({
+      message: 'Ye shall not pass!'
+    });
+    return;
+  }
   try {
     await mongodb.getDb().db('genshinImpact').collection('weapons').find().toArray()
       .then((result) => {
