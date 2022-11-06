@@ -9,14 +9,10 @@ const { validationResult } = require('express-validator');
 const charactersController = require('../controllers/characters.js');
 const validatior = require('../validation.js');
 const characterValidator = validatior.characterValidation;
-// const loadUser = require("../middleware/loadUser");
 
 
 // Main
 // GET / Read
-// router.use([loadUser]);
-
-
 router.get('/', charactersController.getAllCharacters);
 router.get('/:id', charactersController.getCharacterById);
 
